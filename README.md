@@ -1,0 +1,2 @@
+# MathJoomla
+Mathjax for Joomla
