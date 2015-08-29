@@ -25,7 +25,18 @@ class plgContentMathJoomla extends JPlugin
 		 * $this->app and $this->params respectively
 		 */
 		// see https://api.joomla.org/cms-3/classes/JDocument.html#method_addScript
-		JFactory::getDocument()->addScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML");
+		$document = JFactory::getDocument();
+		$document->addScriptDeclaration(
+'MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ["$","$"], ["\\\\(","\\\\)"] ],
+      displayMath: [ ["$$","$$"], ["\\\\[","\\\\]"] ],
+      processEscapes: true
+    },
+  });', "text/x-mathjax-config");
+		// FIXME script defer work only in IE10+ (see http://caniuse.com/#search=defer ) but the bug should not affect this particular case
+		$document->addScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML", "text/javascript", true);
+		// $document->addScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default");
 		return true;
 	}
 }
