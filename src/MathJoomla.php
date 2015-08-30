@@ -2,7 +2,7 @@
 // no direct access
 defined( '_JEXEC' ) or die;
 
-class plgContentMathJoomla extends JPlugin
+class plgSystemMathJoomla extends JPlugin
 {
 	/**
 	 * Load the language file on instantiation. Note this is only available in Joomla 3.1 and higher.
@@ -17,7 +17,9 @@ class plgContentMathJoomla extends JPlugin
 	 * Plugin method with the same name as the event will be called automatically.
 	 */
 	// FIXME change event to sistem event like onAfterInitialise or similar
-	function onContentPrepare($context, &$article, &$params, $page)
+	// function onContentPrepare($context, &$article, &$params, $page)
+	
+	public function onBeforeRender	()
 	{
 		/*
 		 * Plugin code goes here.
@@ -28,6 +30,12 @@ class plgContentMathJoomla extends JPlugin
 		//echo ("<pre>");
 		//var_dump($this->params->get('version', 'non_impostata'));
 		//echo ("</pre>");
+		
+		$app = JFactory::getApplication();
+
+		if ($app->isAdmin()) {
+			return;
+		}
 		
 		$version = $this->params->get("version", "latest");
 		$configfile = $this->params->get("configfile");
