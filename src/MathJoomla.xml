@@ -11,17 +11,135 @@
 	<description>PLG_CONTENT_MATHJOOMLA_XML_DESCRIPTION</description>
 	<files>
 		<filename plugin="MathJoomla">MathJoomla.php</filename>
-		<!--filename>index.html</filename-->
+		<!--filename>index._HTML</filename-->
 	</files>
 	<!--languages>
 		<language tag="en-GB">en-GB.PLG_CONTENT_MATHJOOMLA.ini</language>
 		<language tag="en-GB">en-GB.PLG_CONTENT_MATHJOOMLA.sys.ini</language>
 	</languages-->
-	<!--config>
+	<config>
 		<fields name="params">
 			<fieldset name="basic">
+				<field name="version" type="groupedlist"
+					description="version"
+					label="version"
+					default="latest">
+					<option value="latest">LATEST</option>
+					<option value="2.5.latest">2.5.latest</option>
+					<option value="2.4.latest">2.4.latest</option>
+					<option value="2.3.latest">2.3.latest</option>
+					<option value="2.2.latest">2.2.latest</option>
+					<option value="2.1.latest">2.1.latest</option>
+					<option value="2.0.latest">2.0.latest</option>
+					<option value="1.1.latest">1.1.latest</option>
+					<option value="1.0.latest">1.0.latest</option>
+				</field>
+				<field name="configfile" type="groupedlist"
+					description="configfile"
+					label="configfile"
+					default="TeX-AMS-MML_HTMLorMML">
+					<option value="TeX-AMS-MML_HTMLorMML">TeX-AMS-MML_HTMLorMML</option>
+					<option value="TeX-AMS_HTML">TeX-AMS_HTML</option>
+					<option value="MML_HTMLorMML">MML_HTMLorMML</option>
+					<option value="AM_HTMLorMML">AM_HTMLorMML</option>
+					<option value="TeX-AMS-MML_SVG">TeX-AMS-MML_SVG</option>
+					<option value="TeX-MML-AM_HTMLorMML">TeX-MML-AM_HTMLorMML</option>
+				</field>
+				<field name="https" type="radio"
+					class="btn-group btn-group-yesno"
+					description="Load on HTTPS"
+					label="Load on HTTPS"
+					default="0">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<!-- inserire configurazione mathjax -->
+			</fieldset>
+			<fieldset name="inline" label="Inline Math" description="description">
+				<field name="inline_single_dollar" type="radio"
+					class="btn-group btn-group-yesno"
+					description="inline single_dollar"
+					label="inline single_dollar"
+					default="0">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="inline_parenthesis" type="radio"
+					class="btn-group btn-group-yesno"
+					description="inline round parenthesis"
+					label="inline round parenthesis"
+					default="1">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="inline_custom" type="radio"
+					class="btn-group btn-group-yesno"
+					description="inline_custom"
+					label="inline_custom"
+					default="0">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="inline_custom_open" type="text"
+					description="inline_custom_open"
+					label="inline_custom_open"
+					default=""
+					showon="inline_custom:1"
+				/>
+				<field name="inline_custom_close" type="text"
+					description="inline_custom_close"
+					label="inline_custom_close"
+					default=""
+					showon="inline_custom:1"
+				/>
+			</fieldset>
+			<fieldset name="display" label="Display Math" description="description">
+				<field name="display_double_dollar" type="radio"
+					class="btn-group btn-group-yesno"
+					description="display double_dollar"
+					label="display double_dollar"
+					default="1">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="display_parenthesis" type="radio"
+					class="btn-group btn-group-yesno"
+					description="display square parenthesis"
+					label="display square parenthesis"
+					default="1">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="display_custom" type="radio"
+					class="btn-group btn-group-yesno"
+					description="display_custom"
+					label="display_custom"
+					default="0">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="display_custom_open" type="text"
+					description="display_custom_open"
+					label="display_custom_open"
+					default=""
+					showon="display_custom:1"
+				/>
+				<field name="display_custom_close" type="text"
+					description="display_custom_close"
+					label="display_custom_close"
+					default=""
+					showon="display_custom:1"
+				/>
+			</fieldset>
+			<!--fieldset name="test">
 				<field name="search_limit" type="text"
 					default="50"
+					description="JFIELD_PLG_SEARCH_SEARCHLIMIT_DESC"
+					label="JFIELD_PLG_SEARCH_SEARCHLIMIT_LABEL"
+					size="5"
+				/>
+				<field name="test_validation" type="text"
+					class="required"
 					description="JFIELD_PLG_SEARCH_SEARCHLIMIT_DESC"
 					label="JFIELD_PLG_SEARCH_SEARCHLIMIT_LABEL"
 					size="5"
@@ -44,7 +162,7 @@
 					<option value="0">JOFF</option>
 					<option value="1">JON</option>
 				</field>
-			</fieldset>
+			</fieldset-->
 		</fields>
-	</config-->
+	</config>
 </extension>
