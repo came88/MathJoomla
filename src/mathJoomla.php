@@ -78,28 +78,26 @@ class PlgSystemMathJoomla extends JPlugin
 		if ($display_custom && !empty($display_custom_open) && !empty($display_custom_close))
 			$display[] = [ $display_custom_open, $display_custom_close ];
 
-		// echo ("<pre>");
-		// var_dump(json_encode($display));
-		// echo ("</pre>");
-
 		$document = JFactory::getDocument();
 		$document->addScriptDeclaration(
 'MathJax.Hub.Config({
     tex2jax: {
-      inlineMath: '.json_encode($inline).',
-      displayMath: '.json_encode($display).',
+      inlineMath: ' . json_encode($inline) . ',
+      displayMath: ' . json_encode($display) . ',
       processEscapes: true
     },
   });', "text/x-mathjax-config");
-		// FIXME script defer work only in IE10+ (see http://caniuse.com/#search=defer ) but the bug should not affect this particular case
 
-		// see http://docs.mathjax.org/en/latest/configuration.html#configuring-mathjax-after-it-is-loaded
+		// FIXME script defer work only in IE10+ (see http://caniuse.com/#search=defer ) but the bug should not affect this particular case
+		// See http://docs.mathjax.org/en/latest/configuration.html#configuring-mathjax-after-it-is-loaded
+
 		$cdn_url = "";
 		if ($https)
 			$cdn_url = "https:";
-		
+
 		$cdn_url .= "//cdn.mathjax.org/mathjax/" . $version . "/MathJax.js?config=" . $configfile;
 		$document->addScript($cdn_url, "text/javascript", true);
+
 		return true;
 	}
 }
