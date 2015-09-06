@@ -14,4 +14,4 @@ before_script:
 
 script:
   # - ./vendor/bin/phpunit
-  - phpcs -p --report=full --extensions=php --standard=./build/Joomla_coding_standards/ruleset.xml src/
+  - phpcs -p --report=full --extensions=php --standard=./build/Joomla/ruleset.xml src/
