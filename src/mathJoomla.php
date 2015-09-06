@@ -12,13 +12,13 @@ class plgSystemMathJoomla extends JPlugin
 	 * @since  3.1
 	 */
 	protected $autoloadLanguage = false;
- 
+
 	/**
 	 * Plugin method with the same name as the event will be called automatically.
 	 */
 	// FIXME change event to sistem event like onAfterInitialise or similar
 	// function onContentPrepare($context, &$article, &$params, $page)
-	
+
 	public function onBeforeRender ()
 	{
 		/*
@@ -26,18 +26,16 @@ class plgSystemMathJoomla extends JPlugin
 		 * You can access database and application objects and parameters via $this->db,
 		 * $this->app and $this->params respectively
 		 */
-		// see https://api.joomla.org/cms-3/classes/JDocument.html#method_addScript
-		//echo ("<pre>");
-		//var_dump($this->params->get('version', 'non_impostata'));
-		//echo ("</pre>");
-		
+
+		 // see https://api.joomla.org/cms-3/classes/JDocument.html#method_addScript
+
 		$app = JFactory::getApplication();
 
 		if ($app->isAdmin())
 		{
 			return;
 		}
-		
+
 		$version = $this->params->get("version", "latest");
 		$configfile = $this->params->get("configfile");
 		$https = $this->params->get("https");
@@ -51,10 +49,9 @@ class plgSystemMathJoomla extends JPlugin
 		$display_custom = $this->params->get("display_custom");
 		$display_custom_open = $this->params->get("display_custom_open");
 		$display_custom_close = $this->params->get("display_custom_close");
-		
-		
+
 		$inline = array();
-		
+
 		if ($inline_single_dollar)
 		{
 			$inline[] = [ '$', '$' ];
@@ -67,9 +64,9 @@ class plgSystemMathJoomla extends JPlugin
 		{
 			$inline[] = [ $inline_custom_open, $inline_custom_close ];
 		}
-		
+
 		$display = array();
-		
+
 		if ($display_double_dollar)
 		{
 			$display[] = [ '$$', '$$' ];
@@ -82,11 +79,11 @@ class plgSystemMathJoomla extends JPlugin
 		{
 			$display[] = [ $display_custom_open, $display_custom_close ];
 		}
-		
+
 		// echo ("<pre>");
 		// var_dump(json_encode($display));
 		// echo ("</pre>");
-		
+
 		$document = JFactory::getDocument();
 		$document->addScriptDeclaration(
 'MathJax.Hub.Config({
@@ -97,7 +94,7 @@ class plgSystemMathJoomla extends JPlugin
     },
   });', "text/x-mathjax-config");
 		// FIXME script defer work only in IE10+ (see http://caniuse.com/#search=defer ) but the bug should not affect this particular case
-		
+
 		// see http://docs.mathjax.org/en/latest/configuration.html#configuring-mathjax-after-it-is-loaded
 		$cdn_url = "";
 		if ($https)
@@ -106,9 +103,6 @@ class plgSystemMathJoomla extends JPlugin
 		}
 		$cdn_url .= "//cdn.mathjax.org/mathjax/" . $version . "/MathJax.js?config=" . $configfile;
 		$document->addScript($cdn_url, "text/javascript", true);
-		// $document->addScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML", "text/javascript", true);
-		// $document->addScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default");
 		return true;
 	}
 }
-?>

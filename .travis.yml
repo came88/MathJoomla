@@ -7,11 +7,8 @@ php:
   - 5.6
 
 before_script:
-  # - composer update
-  - pyrus install pear/PHP_CodeSniffer-1.5.6
-  # - pyrus install pear/PHP_CodeSniffer
+  - pyrus install pear/PHP_CodeSniffer
   - phpenv rehash
 
 script:
-  # - ./vendor/bin/phpunit
   - phpcs -p --report=full --extensions=php --standard=./build/Joomla/ruleset.xml src/
