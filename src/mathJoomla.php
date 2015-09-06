@@ -19,7 +19,7 @@ class plgSystemMathJoomla extends JPlugin
 	// FIXME change event to sistem event like onAfterInitialise or similar
 	// function onContentPrepare($context, &$article, &$params, $page)
 	
-	public function onBeforeRender	()
+	public function onBeforeRender ()
 	{
 		/*
 		 * Plugin code goes here.
@@ -33,7 +33,8 @@ class plgSystemMathJoomla extends JPlugin
 		
 		$app = JFactory::getApplication();
 
-		if ($app->isAdmin()) {
+		if ($app->isAdmin())
+		{
 			return;
 		}
 		
@@ -54,25 +55,31 @@ class plgSystemMathJoomla extends JPlugin
 		
 		$inline = array();
 		
-		if ($inline_single_dollar) {
+		if ($inline_single_dollar)
+		{
 			$inline[] = [ '$', '$' ];
 		}
-		if ($inline_parenthesis) {
+		if ($inline_parenthesis)
+		{
 			$inline[] = [ '\\(', '\\)' ];
 		}
-		if ($inline_custom && !empty($inline_custom_open) && !empty($inline_custom_close)) {
+		if ($inline_custom && !empty($inline_custom_open) && !empty($inline_custom_close))
+		{
 			$inline[] = [ $inline_custom_open, $inline_custom_close ];
 		}
 		
 		$display = array();
 		
-		if ($display_double_dollar) {
+		if ($display_double_dollar)
+		{
 			$display[] = [ '$$', '$$' ];
 		}
-		if ($display_parenthesis) {
+		if ($display_parenthesis)
+		{
 			$display[] = [ '\\[', '\\]' ];
 		}
-		if ($display_custom && !empty($display_custom_open) && !empty($display_custom_close)) {
+		if ($display_custom && !empty($display_custom_open) && !empty($display_custom_close))
+		{
 			$display[] = [ $display_custom_open, $display_custom_close ];
 		}
 		
@@ -93,7 +100,8 @@ class plgSystemMathJoomla extends JPlugin
 		
 		// see http://docs.mathjax.org/en/latest/configuration.html#configuring-mathjax-after-it-is-loaded
 		$cdn_url = "";
-		if ($https) {
+		if ($https)
+		{
 			$cdn_url = "https:";
 		}
 		$cdn_url .= "//cdn.mathjax.org/mathjax/" . $version . "/MathJax.js?config=" . $configfile;
