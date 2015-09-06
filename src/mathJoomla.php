@@ -1,7 +1,7 @@
 <?php
 /**
- * @copyright
- * @license
+ * @copyright   2015 Lorenzo Cameroni
+ * @license     GNU General Public License version 2 or later; see http://www.gnu.org/licenses/gpl-2.0.html
  */
 
 // No direct access
@@ -9,6 +9,8 @@ defined('_JEXEC') or die;
 
 /**
  * TODO: Some comments here
+ *
+ * @since never
  */
 class PlgSystemMathJoomla extends JPlugin
 {
@@ -29,6 +31,7 @@ class PlgSystemMathJoomla extends JPlugin
 
 	/**
 	 * Do all the job...
+	 *
 	 * @return always true
 	 */
 	public function onBeforeRender ()
@@ -110,6 +113,7 @@ class PlgSystemMathJoomla extends JPlugin
 		// See http://docs.mathjax.org/en/latest/configuration.html#configuring-mathjax-after-it-is-loaded
 
 		$cdn_url = "";
+
 		if ($https)
 		{
 			$cdn_url = "https:";
