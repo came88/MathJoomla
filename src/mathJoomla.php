@@ -1,7 +1,7 @@
 <?php
 /**
- * @copyright   2015 Lorenzo Cameroni
- * @license     GNU General Public License version 2 or later; see http://www.gnu.org/licenses/gpl-2.0.html
+ * @copyright  2015 Lorenzo Cameroni
+ * @license    GNU General Public License version 2 or later; see http://www.gnu.org/licenses/gpl-2.0.html
  */
 
 // No direct access
@@ -10,7 +10,7 @@ defined('_JEXEC') or die;
 /**
  * TODO: Some comments here
  *
- * @since never
+ * @since  never
  */
 class PlgSystemMathJoomla extends JPlugin
 {
