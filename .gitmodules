@@ -1,0 +1,3 @@
+[submodule "build/Joomla_coding_standards"]
+	path = build/Joomla_coding_standards
+	url = git://github.com/joomla/coding-standards.git
