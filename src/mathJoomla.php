@@ -3,7 +3,7 @@
  * TODO: write some comments here...
  */
 
-// no direct access
+// No direct access
 defined ('_JEXEC') or die;
 
 class PlgSystemMathJoomla extends JPlugin
@@ -34,7 +34,7 @@ class PlgSystemMathJoomla extends JPlugin
 		 * $this->app and $this->params respectively
 		 */
 
-		 // see https://api.joomla.org/cms-3/classes/JDocument.html#method_addScript
+		// see https://api.joomla.org/cms-3/classes/JDocument.html#method_addScript
 
 		$app = JFactory::getApplication();
 
@@ -58,27 +58,25 @@ class PlgSystemMathJoomla extends JPlugin
 
 		$inline = array();
 
-		if ($inline_single_dollar) {
+		if ($inline_single_dollar)
 			$inline[] = [ '$', '$' ];
-		}
-		if ($inline_parenthesis) {
+
+		if ($inline_parenthesis)
 			$inline[] = [ '\\(', '\\)' ];
-		}
-		if ($inline_custom && !empty($inline_custom_open) && !empty($inline_custom_close)) {
+
+		if ($inline_custom && !empty($inline_custom_open) && !empty($inline_custom_close))
 			$inline[] = [ $inline_custom_open, $inline_custom_close ];
-		}
 
 		$display = array();
 
-		if ($display_double_dollar) {
+		if ($display_double_dollar)
 			$display[] = [ '$$', '$$' ];
-		}
-		if ($display_parenthesis) {
+
+		if ($display_parenthesis)
 			$display[] = [ '\\[', '\\]' ];
-		}
-		if ($display_custom && !empty($display_custom_open) && !empty($display_custom_close)) {
+
+		if ($display_custom && !empty($display_custom_open) && !empty($display_custom_close))
 			$display[] = [ $display_custom_open, $display_custom_close ];
-		}
 
 		// echo ("<pre>");
 		// var_dump(json_encode($display));
@@ -97,9 +95,9 @@ class PlgSystemMathJoomla extends JPlugin
 
 		// see http://docs.mathjax.org/en/latest/configuration.html#configuring-mathjax-after-it-is-loaded
 		$cdn_url = "";
-		if ($https) {
+		if ($https)
 			$cdn_url = "https:";
-		}
+		
 		$cdn_url .= "//cdn.mathjax.org/mathjax/" . $version . "/MathJax.js?config=" . $configfile;
 		$document->addScript($cdn_url, "text/javascript", true);
 		return true;
