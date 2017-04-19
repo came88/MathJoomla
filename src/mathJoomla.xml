@@ -2,41 +2,53 @@
 <extension version="3.1" type="plugin" group="system" method="upgrade">
 	<name>MathJoomla</name>
 	<author>Lorenzo Cameroni</author>
-	<creationDate>August 2015</creationDate>
-	<copyright>Copyright (C) 2015 Lorenzo Cameroni. All rights reserved.</copyright>
+	<creationDate>April 2017</creationDate>
+	<copyright>Copyright (C) 2017 Lorenzo Cameroni. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>lorenzo@cameroni.eu</authorEmail>
 	<authorUrl>https://github.com/came88/MathJoomla</authorUrl>
-	<version>0.0.1alpha</version>
-	<description>PLG_CONTENT_MATHJOOMLA_XML_DESCRIPTION</description>
+	<version>0.0.2</version>
+	<description>MATHJOOMLA_XML_DESCRIPTION</description>
 	<files>
 		<filename plugin="mathJoomla">mathJoomla.php</filename>
 		<!--filename>index._HTML</filename-->
+		<folder>language</folder>
 	</files>
-	<!--languages>
-		<language tag="en-GB">en-GB.PLG_CONTENT_MATHJOOMLA.ini</language>
-		<language tag="en-GB">en-GB.PLG_CONTENT_MATHJOOMLA.sys.ini</language>
-	</languages-->
+	<languages>
+		<language tag="en-GB">language/en-GB.plg_system_mathJoomla.ini</language>
+		<language tag="en-GB">language/en-GB.plg_system_mathJoomla.sys.ini</language>
+		<language tag="it-IT">language/it-IT.plg_system_mathJoomla.ini</language>
+		<language tag="it-IT">language/it-IT.plg_system_mathJoomla.sys.ini</language>
+	</languages>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
 				<field name="version" type="groupedlist"
-					description="version"
-					label="version"
-					default="latest">
-					<option value="latest">LATEST</option>
-					<option value="2.5.latest">2.5.latest</option>
-					<option value="2.4.latest">2.4.latest</option>
-					<option value="2.3.latest">2.3.latest</option>
-					<option value="2.2.latest">2.2.latest</option>
-					<option value="2.1.latest">2.1.latest</option>
-					<option value="2.0.latest">2.0.latest</option>
-					<option value="1.1.latest">1.1.latest</option>
-					<option value="1.0.latest">1.0.latest</option>
+					description="MATHJOOMLA_VERSION_DESC"
+					label="MATHJOOMLA_VERSION"
+					default="2.7.0">
+					<option value="2.7.0">2.7.0</option>
+					<option value="2.6.1">2.6.1</option>
+					<option value="2.6.0">2.6.0</option>
+					<option value="2.5.3">2.5.3</option>
+					<option value="2.5.2">2.5.2</option>
+					<option value="2.5.1">2.5.1</option>
+					<option value="2.5.0">2.5.0</option>
+					<option value="2.4.0">2.4.0</option>
+					<option value="2.3.0">2.3.0</option>
+					<option value="2.3">2.3</option>
+					<option value="2.2.0">2.2.0</option>
+					<option value="2.2">2.2</option>
+					<option value="2.1.0">2.1.0</option>
+					<option value="2.1">2.1</option>
+					<option value="2.0.0">2.0.0</option>
+					<option value="2.0">2.0</option>
+					<option value="1.1a">1.1a</option>
+					<option value="1.1">1.1</option>
 				</field>
 				<field name="configfile" type="groupedlist"
-					description="configfile"
-					label="configfile"
+					description="MATHJOOMLA_CONFIGFILE_DESC"
+					label="MATHJOOMLA_CONFIGFILE"
 					default="TeX-AMS-MML_HTMLorMML">
 					<option value="TeX-AMS-MML_HTMLorMML">TeX-AMS-MML_HTMLorMML</option>
 					<option value="TeX-AMS_HTML">TeX-AMS_HTML</option>
@@ -47,122 +59,90 @@
 				</field>
 				<field name="https" type="radio"
 					class="btn-group btn-group-yesno"
-					description="Load on HTTPS"
-					label="Load on HTTPS"
+					description="MATHJOOMLA_HTTPS_DESC"
+					label="MATHJOOMLA_HTTPS"
 					default="0">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
 				<!-- inserire configurazione mathjax -->
 			</fieldset>
-			<fieldset name="inline" label="Inline Math" description="description">
+			<fieldset name="inline" label="MATHJOOMLA_INLINE_MATH" description="MATHJOOMLA_INLINE_MATH_DESC">
 				<field name="inline_single_dollar" type="radio"
 					class="btn-group btn-group-yesno"
-					description="inline single_dollar"
-					label="inline single_dollar"
+					description="MATHJOOMLA_INLINE_SINGLE_DOLLAR_DESC"
+					label="MATHJOOMLA_INLINE_SINGLE_DOLLAR"
 					default="0">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
 				<field name="inline_parenthesis" type="radio"
 					class="btn-group btn-group-yesno"
-					description="inline round parenthesis"
-					label="inline round parenthesis"
+					description="MATHJOOMLA_INLINE_ROUND_PARENTHESIS_DESC"
+					label="MATHJOOMLA_INLINE_ROUND_PARENTHESIS"
 					default="1">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
 				<field name="inline_custom" type="radio"
 					class="btn-group btn-group-yesno"
-					description="inline_custom"
-					label="inline_custom"
+					description="MATHJOOMLA_INLINE_CUSTOM_DESC"
+					label="MATHJOOMLA_INLINE_CUSTOM"
 					default="0">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
 				<field name="inline_custom_open" type="text"
-					description="inline_custom_open"
-					label="inline_custom_open"
+					description="MATHJOOMLA_INLINE_CUSTOM_OPEN_DESC"
+					label="MATHJOOMLA_INLINE_CUSTOM_OPEN"
 					default=""
 					showon="inline_custom:1"
 				/>
 				<field name="inline_custom_close" type="text"
-					description="inline_custom_close"
-					label="inline_custom_close"
+					description="MATHJOOMLA_INLINE_CUSTOM_CLOSE_DESC"
+					label="MATHJOOMLA_INLINE_CUSTOM_CLOSE"
 					default=""
 					showon="inline_custom:1"
 				/>
 			</fieldset>
-			<fieldset name="display" label="Display Math" description="description">
+			<fieldset name="display" label="MATHJOOMLA_DISPLAY_MATH" description="MATHJOOMLA_DISPLAY_MATH_DESC">
 				<field name="display_double_dollar" type="radio"
 					class="btn-group btn-group-yesno"
-					description="display double_dollar"
-					label="display double_dollar"
+					description="MATHJOOMLA_DISPLAY_DOUBLE_DOLLAR_DESC"
+					label="MATHJOOMLA_DISPLAY_DOUBLE_DOLLAR"
 					default="1">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
 				<field name="display_parenthesis" type="radio"
 					class="btn-group btn-group-yesno"
-					description="display square parenthesis"
-					label="display square parenthesis"
+					description="MATHJOOMLA_DISPLAY_SQUARE_PARENTHESIS_DESC"
+					label="MATHJOOMLA_DISPLAY_SQUARE_PARENTHESIS"
 					default="1">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
 				<field name="display_custom" type="radio"
 					class="btn-group btn-group-yesno"
-					description="display_custom"
-					label="display_custom"
+					description="MATHJOOMLA_DISPLAY_CUSTOM_DESC"
+					label="MATHJOOMLA_DISPLAY_CUSTOM"
 					default="0">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
 				<field name="display_custom_open" type="text"
-					description="display_custom_open"
-					label="display_custom_open"
+					description="MATHJOOMLA_DISPLAY_CUSTOM_OPEN_DESC"
+					label="MATHJOOMLA_DISPLAY_CUSTOM_OPEN"
 					default=""
 					showon="display_custom:1"
 				/>
 				<field name="display_custom_close" type="text"
-					description="display_custom_close"
-					label="display_custom_close"
+					description="MATHJOOMLA_DISPLAY_CUSTOM_CLOSE_DESC"
+					label="MATHJOOMLA_DISPLAY_CUSTOM_CLOSE"
 					default=""
 					showon="display_custom:1"
 				/>
 			</fieldset>
-			<!--fieldset name="test">
-				<field name="search_limit" type="text"
-					default="50"
-					description="JFIELD_PLG_SEARCH_SEARCHLIMIT_DESC"
-					label="JFIELD_PLG_SEARCH_SEARCHLIMIT_LABEL"
-					size="5"
-				/>
-				<field name="test_validation" type="text"
-					class="required"
-					description="JFIELD_PLG_SEARCH_SEARCHLIMIT_DESC"
-					label="JFIELD_PLG_SEARCH_SEARCHLIMIT_LABEL"
-					size="5"
-				/>
- 
-				<field name="search_content" type="radio"
-					default="0"
-					description="JFIELD_PLG_SEARCH_ALL_DESC"
-					label="JFIELD_PLG_SEARCH_ALL_LABEL"
-				>
-					<option value="0">JOFF</option>
-					<option value="1">JON</option>
-				</field>
- 
-				<field name="search_archived" type="radio"
-					default="0"
-					description="JFIELD_PLG_SEARCH_ARCHIVED_DESC"
-					label="JFIELD_PLG_SEARCH_ARCHIVED_LABEL"
-				>
-					<option value="0">JOFF</option>
-					<option value="1">JON</option>
-				</field>
-			</fieldset-->
 		</fields>
 	</config>
 </extension>

@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright  2015 Lorenzo Cameroni
+ * @copyright  2017 Lorenzo Cameroni
  * @license    GNU General Public License version 2 or later; see http://www.gnu.org/licenses/gpl-2.0.html
  */
 
@@ -119,7 +119,8 @@ class PlgSystemMathJoomla extends JPlugin
 			$cdn_url = "https:";
 		}
 
-		$cdn_url .= "//cdn.mathjax.org/mathjax/" . $version . "/MathJax.js?config=" . $configfile;
+		// $cdn_url .= "//cdn.mathjax.org/mathjax/" . $version . "/MathJax.js?config=" . $configfile;
+		$cdn_url .= "//cdnjs.cloudflare.com/ajax/libs/mathjax/" . $version . "/MathJax.js?config=" . $configfile;
 		$document->addScript($cdn_url, "text/javascript", true);
 
 		return true;
